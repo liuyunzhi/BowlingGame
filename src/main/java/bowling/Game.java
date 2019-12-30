@@ -10,6 +10,10 @@ public class Game {
     public void add(final int pins) {
         itsThrows[itsCurrentThrow++] = pins;
         itsScore += pins;
+        adjustCurrentFrame();
+    }
+
+    private void adjustCurrentFrame() {
         if (firstThrow) {
             firstThrow = false;
             itsCurrentFrame++;
