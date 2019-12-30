@@ -40,4 +40,13 @@ public class GameTest {
         assertEquals(9, game.scoreForFrame(1));
         assertEquals(18, game.scoreForFrame(2));
     }
+
+    @Test
+    void simple_spare() {
+        game.add(3);
+        game.add(7);
+        game.add(3);
+
+        assertEquals(13, game.scoreForFrame(1));
+    }
 }
