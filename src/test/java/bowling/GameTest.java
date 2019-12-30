@@ -58,4 +58,15 @@ public class GameTest {
         assertEquals(18, game.score());
         assertEquals(3, game.getCurrentFrame());
     }
+
+    @Test
+    void simple_strike() {
+        game.add(10);
+        game.add(3);
+        game.add(6);
+
+        assertEquals(19, game.scoreForFrame(1));
+        assertEquals(28, game.score());
+        assertEquals(3, game.getCurrentFrame());
+    }
 }
