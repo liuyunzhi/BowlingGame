@@ -1,15 +1,21 @@
 package bowling;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GameTest {
 
+    private Game game;
+
+    @BeforeEach
+    void setUp() {
+        game = new Game();
+    }
+
     @Test
     void one_throw() {
-        final Game game = new Game();
-
         game.add(5);
 
         assertEquals(5, game.score());
@@ -17,8 +23,6 @@ public class GameTest {
 
     @Test
     void two_throws_no_mark() {
-        final Game game = new Game();
-
         game.add(5);
         game.add(4);
 
@@ -27,8 +31,6 @@ public class GameTest {
 
     @Test
     void four_throws_no_mark() {
-        final Game game = new Game();
-
         game.add(5);
         game.add(4);
         game.add(7);
