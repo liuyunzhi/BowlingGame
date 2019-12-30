@@ -15,22 +15,12 @@ public class Game {
         adjustCurrentFrame(pins);
     }
 
-    private void adjustCurrentFrame(int pins) {
-        if (firstThrowInFrame) {
-            if (pins == 10) {
-                itsCurrentFrame++;
-            } else {
-                firstThrowInFrame = false;
-            }
-        } else {
-            firstThrowInFrame = true;
-            itsCurrentFrame++;
-        }
-        itsCurrentFrame = Math.min(11, itsCurrentFrame);
-    }
-
     public int score() {
         return scoreForFrame(getCurrentFrame() - 1);
+    }
+
+    public int getCurrentFrame() {
+        return itsCurrentFrame;
     }
 
     public int scoreForFrame(int theFrame) {
@@ -51,6 +41,20 @@ public class Game {
         return score;
     }
 
+    private void adjustCurrentFrame(int pins) {
+        if (firstThrowInFrame) {
+            if (pins == 10) {
+                itsCurrentFrame++;
+            } else {
+                firstThrowInFrame = false;
+            }
+        } else {
+            firstThrowInFrame = true;
+            itsCurrentFrame++;
+        }
+        itsCurrentFrame = Math.min(11, itsCurrentFrame);
+    }
+
     private boolean strike() {
         return itsThrows[ball] == 10;
     }
@@ -69,9 +73,5 @@ public class Game {
 
     private int nextBallForSpare() {
         return itsThrows[ball + 2];
-    }
-
-    public int getCurrentFrame() {
-        return itsCurrentFrame;
     }
 }
