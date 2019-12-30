@@ -1,14 +1,12 @@
 package bowling;
 
 public class Game {
-    private int itsScore = 0;
     private int itsCurrentFrame = 1;
     private boolean firstThrowInFrame = true;
     private Scorer itsScorer = new Scorer();
 
     public void add(final int pins) {
         itsScorer.addThrow(pins);
-        itsScore += pins;
         adjustCurrentFrame(pins);
     }
 
