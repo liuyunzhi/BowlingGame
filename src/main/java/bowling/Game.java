@@ -5,7 +5,7 @@ public class Game {
     private int[] itsThrows = new int[21];
     private int itsCurrentThrow = 0;
     private int itsCurrentFrame = 1;
-    private boolean firstThrow = true;
+    private boolean firstThrowInFrame = true;
 
     public void add(final int pins) {
         itsThrows[itsCurrentThrow++] = pins;
@@ -14,14 +14,14 @@ public class Game {
     }
 
     private void adjustCurrentFrame(int pins) {
-        if (firstThrow) {
+        if (firstThrowInFrame) {
             if (pins == 10) {
                 itsCurrentFrame++;
             } else {
-                firstThrow = false;
+                firstThrowInFrame = false;
             }
         } else {
-            firstThrow = true;
+            firstThrowInFrame = true;
             itsCurrentFrame++;
         }
         itsCurrentFrame = Math.min(11, itsCurrentFrame);
