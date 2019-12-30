@@ -8,8 +8,6 @@ public class Game {
     private boolean firstThrowInFrame = true;
 
     private int ball;
-    private int firstThrow;
-    private int secondThrow;
 
     public void add(final int pins) {
         itsThrows[itsCurrentThrow++] = pins;
@@ -39,7 +37,6 @@ public class Game {
         ball = 0;
         int score = 0;
         for (int currentFrame = 0; currentFrame < theFrame; currentFrame++) {
-            firstThrow = itsThrows[ball];
             if (strike()) {
                 ball++;
                 score += 10 + nextTwoBalls();
@@ -60,8 +57,6 @@ public class Game {
 
     private int handleSecondThrow() {
         int score = 0;
-        secondThrow = itsThrows[ball + 1];
-        int frameScore = firstThrow + secondThrow;
         if (spare()) {
             ball += 2;
             score += 10 + nextBall();
