@@ -11,11 +11,7 @@ public class Game {
     }
 
     public int score() {
-        return scoreForFrame(getCurrentFrame() - 1);
-    }
-
-    public int getCurrentFrame() {
-        return itsCurrentFrame;
+        return scoreForFrame(itsCurrentFrame);
     }
 
     public int scoreForFrame(int theFrame) {
@@ -42,6 +38,6 @@ public class Game {
     }
 
     private void advanceFrame() {
-        itsCurrentFrame = Math.min(11, itsCurrentFrame + 1);
+        itsCurrentFrame = Math.min(10, itsCurrentFrame + 1);
     }
 }
