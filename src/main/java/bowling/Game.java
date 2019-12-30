@@ -10,9 +10,13 @@ public class Game {
     private int ball;
 
     public void add(final int pins) {
-        itsThrows[itsCurrentThrow++] = pins;
+        addThrow(pins);
         itsScore += pins;
         adjustCurrentFrame(pins);
+    }
+
+    private void addThrow(final int pins) {
+        itsThrows[itsCurrentThrow++] = pins;
     }
 
     public int score() {
