@@ -49,4 +49,15 @@ public class GameTest {
 
         assertEquals(13, game.scoreForFrame(1));
     }
+
+    @Test
+    void simple_frame_after_spare() {
+        game.add(3);
+        game.add(7);
+        game.add(3);
+        game.add(2);
+
+        assertEquals(13, game.scoreForFrame(1));
+        assertEquals(18, game.scoreForFrame(2));
+    }
 }
