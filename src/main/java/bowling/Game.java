@@ -66,10 +66,14 @@ public class Game {
             ball += 2;
             score += 10 + nextBall();
         } else {
+            score += twoBallInFrame();
             ball += 2;
-            score += frameScore;
         }
         return score;
+    }
+
+    private int twoBallInFrame() {
+        return itsThrows[ball] + itsThrows[ball + 1];
     }
 
     private boolean spare() {
