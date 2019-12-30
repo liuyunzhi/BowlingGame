@@ -78,4 +78,72 @@ public class GameTest {
         assertEquals(300, game.score());
         assertEquals(11, game.getCurrentFrame());
     }
+
+    @Test
+    void strike_at_the_latest_throw() {
+        for (int i = 0; i < 9; i++) {
+            game.add(0);
+            game.add(0);
+        }
+        game.add(2);
+        game.add(8);
+        game.add(10);
+        assertEquals(20, game.score());
+    }
+
+    @Test
+    void simple_game() {
+        game.add(1);
+        game.add(4);
+
+        game.add(4);
+        game.add(5);
+
+        game.add(6);
+        game.add(4);
+
+        game.add(5);
+        game.add(5);
+
+        game.add(10);
+
+        game.add(0);
+        game.add(1);
+
+        game.add(7);
+        game.add(3);
+
+        game.add(6);
+        game.add(4);
+
+        game.add(10);
+
+        game.add(2);
+        game.add(8);
+        game.add(6);
+
+        assertEquals(133, game.score());
+    }
+
+    @Test
+    void heart_break() {
+        for (int i = 0; i < 11; i++) {
+            game.add(10);
+        }
+        game.add(9);
+
+        assertEquals(299, game.score());
+    }
+
+    @Test
+    void tenth_frame_spare() {
+        for (int i = 0; i < 9; i++) {
+            game.add(10);
+        }
+        game.add(9);
+        game.add(1);
+        game.add(1);
+
+        assertEquals(270, game.score());
+    }
 }
