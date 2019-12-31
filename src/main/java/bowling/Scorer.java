@@ -1,6 +1,6 @@
 package bowling;
 
-public class Scorer {
+class Scorer {
     private int ball;
     private int[] itsThrows = new int[21];
     private int itsCurrentThrow = 0;
@@ -9,7 +9,7 @@ public class Scorer {
         itsThrows[itsCurrentThrow++] = pins;
     }
 
-    public int scoreForFrame(int theFrame) {
+    int scoreForFrame(int theFrame) {
         ball = 0;
         int score = 0;
         for (int currentFrame = 0; currentFrame < theFrame; currentFrame++) {
